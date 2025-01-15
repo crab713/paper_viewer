@@ -38,6 +38,6 @@ if __name__ == '__main__':
     keyword_list = ["pre-train", "pretrain", "unsupervise", "autoencoder", "self-supervise"]
 
     filtered_papers = filter_for_paper(get_paper_from_db(conference, year), keyword_list)
-    with open("export_{}_{}_{}.md".format(conference, year, "_".join(keyword_list)), "w") as f:
+    with open("export_{}_{}_{}.md".format(conference, year, "_".join(keyword_list)), "w", encoding='utf8') as f:
         for index, paper in enumerate(filtered_papers):
             f.write("## {}. {}\n\n引用量:{}\n\n摘要:{}\n\n".format(index, paper["paper_name"], paper["citation"], paper["abstract"]))
